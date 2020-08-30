@@ -43,8 +43,8 @@ def run_r2_demo():
     y_pred = m.predict(X_test.reshape(-1, 1))
     print(f'R2 = {r2_score(y_test, y_pred)}')
     plt.plot(xeqn, m.predict(xeqn.reshape(-1, 1)), linestyle='--', color='gray')
+    plt.savefig('figs/demo_data.png')
     plt.show()
-    plt.savefig('demo_data.png')
 
     # Emulate random sampling
     kf = KFold(n_splits=5, shuffle=True)
@@ -70,8 +70,8 @@ def run_r2_demo():
     g = sns.distplot(scores, bins=20, kde=False, rug=True, axlabel='$R^2$', rug_kws={'alpha': 0.5}, ax=ax2)
 
     ax.set_title(f'Distribution of $R^2$ scores ({n_splits} splits; test fraction={test_size})')
+    plt.savefig('figs/demo_histr2.png')
     plt.show()
-    plt.savefig('demo_histr2.png')
 
 
 if __name__ == '__main__':
